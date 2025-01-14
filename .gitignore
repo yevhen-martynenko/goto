@@ -1,0 +1,23 @@
+# python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# virtual environment directories
+venv/
+env/
+.venv/
+
+# logs
+*.log
+
+# application runtime files
+*.swp
+*.bak
+*.tmp
+
+# environment variables file
+.env
+
