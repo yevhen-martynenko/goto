@@ -4,28 +4,30 @@ import argparse
 def configure_parser():
     parser = argparse.ArgumentParser(
         prog="goto",
-        description="description",
-        add_help=False
+        description="Go to a directory passed as an argument",
+        add_help=False,
+        formatter_class=argparse.HelpFormatter
     )
 
     commands_group = parser.add_argument_group("Commands")
     commands = commands_group.add_mutually_exclusive_group()
     commands.add_argument(
-        "pin",
+        "--pin",
         type=str,
         nargs="?",
+        metavar="DIR",
         help="pin a directory to a search term"
     )
     commands.add_argument(
-        "pins",
-        type="store_true",
-        nargs="?",
+        "--pins",
+        action="store_true",
         help="lists all the pinned search terms"
     )
     commands.add_argument(
-        "unpin",
+        "--unpin",
         type=str,
         nargs="?",
+        metavar="DIR",
         help="unpin a search term"
     )
 
@@ -43,4 +45,3 @@ def configure_parser():
     )
 
     return parser
-
