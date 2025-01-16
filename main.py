@@ -8,8 +8,6 @@ def main():
     args = parser.parse_args()
     create_db()
 
-    print(f"{args}\n")
-
     if args.help:
         parser.print_help()
     if args.version:
