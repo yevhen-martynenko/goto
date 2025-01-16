@@ -1,3 +1,4 @@
+from data import create_db
 from src import configure_parser
 from src.commands import add_pin, remove_pin, show_pins
 
@@ -5,6 +6,7 @@ from src.commands import add_pin, remove_pin, show_pins
 def main():
     parser = configure_parser()
     args = parser.parse_args()
+    create_db()
 
     print(f"{args}\n")
 
