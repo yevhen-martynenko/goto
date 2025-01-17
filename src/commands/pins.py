@@ -3,10 +3,11 @@ import sqlite3
 
 
 def get_pins():
-    db_name = os.path.join("data", "database.db")
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    db_path = os.path.join(project_root, "data", "database.db")
 
     try:
-        with sqlite3.connect(db_name) as con:
+        with sqlite3.connect(db_path) as con:
             cur = con.cursor()
 
             cur.execute("SELECT * FROM pins")
@@ -15,13 +16,13 @@ def get_pins():
             return pins
 
     except sqlite3.Error as e:
-        print(f"Error while creating database: {e}")
+        print(f"Error while retrieving data: {e}")
         return []
 
 
 def print_pins(pins):
     for pin in pins:
-        print(pin)
+        print(f"{pin[1]} \t {pin[0]}")
 
 
 def show_pins():

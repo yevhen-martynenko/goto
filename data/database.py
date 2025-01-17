@@ -3,10 +3,11 @@ import sqlite3
 
 
 def create_db():
-    db_name = os.path.join("data", "database.db")
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    db_path = os.path.join(project_root, "data", "database.db")
 
     try:
-        with sqlite3.connect(db_name) as con:
+        with sqlite3.connect(db_path) as con:
             cur = con.cursor()
 
             cur.execute("""
