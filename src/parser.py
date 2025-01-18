@@ -9,6 +9,15 @@ def configure_parser():
         formatter_class=argparse.HelpFormatter
     )
 
+    positional_arguments_group = parser.add_argument_group("Positional arguments")
+    positional_arguments = positional_arguments_group.add_mutually_exclusive_group()
+    positional_arguments.add_argument(
+        "goto_pin",
+        type=str,
+        nargs="?",
+        help="navigate to the specified pinned directory"
+    )
+
     commands_group = parser.add_argument_group("Commands")
     commands = commands_group.add_mutually_exclusive_group()
     commands.add_argument(
