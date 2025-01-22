@@ -26,15 +26,10 @@ def main():
 
     if args.pins:
         show_pins()
-
     if args.pin:
-        shortcut = args.pin
-        add_pin(shortcut)
-
+        add_pin(args.pin)
     if args.unpin:
-        shortcut = args.unpin
-        remove_pin(shortcut)
-
+        remove_pin(args.unpin)
     if args.goto_pin:
         go_to_pin(args.goto_pin)
 
